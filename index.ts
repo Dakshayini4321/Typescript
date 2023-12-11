@@ -283,3 +283,82 @@ console.log(colorNames);
 
 const squaredSumString: string = squaredSum.toString();
 console.log(squaredSumString);
+
+
+function identity<T>(arg: T): T {
+    return arg;
+  }
+  
+  let resul1: number = identity(3);
+  console.log(result1);
+  
+  let resul2: string = identity('Hello');
+  console.log(result2);
+  
+  let result3: boolean = identity(true);
+  console.log(result3);
+  
+     type Point222 = { x: number; y: number };
+     type PartialPoint = Partial<Point222>;
+  const partialPoint: PartialPoint = { x: 1 };
+  console.log(partialPoint);
+  
+  type Person22 = { name: string; age: number };
+  type PersonKey = keyof Person22;
+  const personKey: PersonKey = 'name';
+  console.log(personKey);
+  
+
+
+
+  type ValueOrNullOrUndefined<T> = T | null | undefined;
+  const valueOrNull1: ValueOrNullOrUndefined<string> = null;
+  console.log(valueOrNull1);
+  
+     const valueOrNull2: ValueOrNullOrUndefined<number> = undefined;
+  console.log(valueOrNull2);
+  
+
+
+  declare const myLibrary: { greet: (name: string) => string };
+  const greetin: string = myLibrary.greet('TypeScript');
+  console.log(greetin);
+  
+  const stringResult: string = identity('Hello');
+  console.log(stringResult);
+  
+  const booleanResult: boolean = identity(true);
+  console.log(booleanResult);
+  
+  const mergedPoint: Point = { x: 1, y: 2, z: 3 };
+  console.log(mergedPoint);
+  
+
+
+  function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
+    return obj[key];
+  }
+  
+  const person: Person = { name: 'John', age: 30 };
+  const nameValue: string = getProperty(person, 'name');
+  console.log(nameValue);
+
+
+  
+  const nullableString1: ValueOrNullOrUndefined<string> = 'Nullable';
+  console.log(nullableString1);
+  
+      const nullableString2: ValueOrNullOrUndefined<string> = null;
+      console.log(nullableString2);
+  
+  const undefinedValue1: ValueOrNullOrUndefined<number> = undefined;
+  console.log(undefinedValue1);
+  
+  
+  const undefinedValue2: ValueOrNullOrUndefined<number> = 42;
+  console.log(undefinedValue2);
+  
+  const typedGreeting1: string = myLibrary.greet('TypeScript');
+  console.log(typedGreeting1);
+  
+  
