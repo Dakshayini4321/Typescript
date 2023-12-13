@@ -1,0 +1,65 @@
+
+<html>
+<head>
+   
+    <link rel="stylesheet" href="C:\Users\user\Desktop\Web\html\as3\angular\typescript\firstTS\hello\calc.css">
+</head>
+<body>
+    <div class="calculator">
+        <h1>Calculator</h1>
+        
+        
+        <div class="input-section">
+
+            <h5 style="text-decoration: blue;">FIRST NUMBER</h5>
+           
+            <input type="text" id="firstNumber" placeholder="Enter first number">
+           
+            <h5 style="text-decoration-color: blue;">SECOND NUMBER</h5>
+            <input type="text" id="secondNumber" placeholder="Enter second number">
+           
+            <br>
+            <br>
+            <button id="saveBtn" onclick="calculate()">Save</button>
+        </div>
+        
+        
+        
+        <div class="result-section">
+            
+            <h5 style="text-decoration-color: blue;">RESULT</h5>
+            <input type="text" id="result" readonly>
+        </div>
+    <div class="buttons-section">
+            
+         <div class="number-buttons" onclick="appendValue(event)">
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <br>
+                 <button>4</button>
+                 <button>5</button>
+                <button>6</button>
+                <br>
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+         </div>
+          
+         
+         <div class="operator-buttons" onclick="setOperator(event)">
+                <button>+</button>
+                <button>-</button>
+                <button>*</button>
+                <br>
+
+                <button>/</button>
+            <button>%</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="C:\Users\user\Desktop\Web\html\as3\angular\typescript\firstTS\hello\calculator.js"></script>
+
+</body>
+</html>
