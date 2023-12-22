@@ -1,0 +1,119 @@
+1.Cli
+
+new Angular app using Angular CLI
+ng new my-app
+cd my-app
+
+basic Angular component
+ng generate component my-component
+
+Modify the app.component.ts f to include NgModules and Template Syntax
+
+2. Ng Modules
+
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { AppComponent } from './app.component';
+import { MyComponentComponent } from './my-component/my-component.component';
+
+@NgModule({
+ declarations: [AppComponent, MyComponentComponent],
+ imports: [BrowserModule, FormsModule],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+
+3.Components
+
+
+  <h1> write titile.. </h1>
+
+  <my-component></my-component>
+
+  <button (click)="onButtonClick()">Click me</button>
+
+  <input [(ngModel)]="name" />
+
+  {{ birthday | date }}
+  <div *ngIf="isVisible">Visible</div>
+  <input #myInput />
+</div>
+
+<p> {{ 'content here }} </p>
+<ul>
+  <li *ngFor="let item of items">{{ item here }}</li>
+
+
+<div [ngClass]="{ 'highlight': isHighlighted }">
+Conditional 
+</div>
+
+<input (keyup.enter)="onEnterKey($event)" />
+
+
+
+4.
+
+app component
+
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    
+6. Component Interaction Demo
+
+    a) Structural Binding 
+
+    <app-child [inputProperty]="parentProperty"></app-child>
+
+    b) Event Emitters 
+
+    <app-child (childEvent)="handleChildEvent($event)"></app-child>
+
+    c) ngModel Two-Way Binding 
+
+    <input [(ngModel)]="property" placeholder="Enter text" />
+
+    d) ngIf Directive 
+
+    <div *ngIf="condition">Content to show</div>
+
+    e) ngFor Directive 
+    <div *ngFor="let item of items">{{ item }}</div>
+
+   6. ngSwitch Directive 
+
+    <div [ngSwitch]="value">
+      <div *ngSwitchCase="'case1'">Content for case 1</div>
+      <div *ngSwitchCase="'case2'">Content for case 2</div>
+      <div *ngSwitchDefault>Default content</div>
+    </div>
+
+    a) Attribute Binding 
+    <div [attr.data-custom]="value"></div>
+
+    b)Class Binding 
+    <div [class.active]="isActive"></div>
+
+    c) Style Binding
+
+    <div [style.color]="isRed ? 'red' : 'blue'"></div>
+  `,
+})
+
+export class AppComponent {
+  parentProperty: string = 'Parent Value';
+  property: string = '';
+
+ condition: boolean = true;
+ items: string[] = ['Item 1', 'Item 2', 'Item 3'];
+  value: string = 'case1';
+  isActive: boolean = true;
+
+  handleChildEvent(event: any) {
+    ( Handle child event here)
+  }
+}
