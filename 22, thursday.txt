@@ -172,3 +172,87 @@ export class AppComponent {
     this.subscription.unsubscribe();
   }
 }
+
+
+
+
+
+Routing 
+
+
+1. RouterModule:
+   - Angular applications use RouterModule to configure the routes. It's typically imported from @angular/router.
+   - Example:
+     
+     import { RouterModule, Routes } from '@angular/router';
+
+     const routes: Routes = [
+       // Define your routes here
+     ];
+
+     @NgModule({
+       imports: [RouterModule.forRoot(routes)],
+       exports: [RouterModule]
+     })
+     export class AppRoutingModule { }
+     
+
+2. Router Parameters:
+   - It can pass parameters in the URL to navigate to a specific route with dynamic data.
+   - Example:
+     
+     // In your route configuration
+     { path: 'details/:id', component: DetailsComponent }
+
+     // In your component
+     this.router.navigate(['/details', 123]);
+     
+
+3. Configuring Router (Nested Router):
+   - Angular supports nested routing, allowing you to have child routes within a parent route.
+   - Example:
+     
+     // Parent route with child routes
+     { path: 'dashboard', component: DashboardComponent, children: [
+       { path: 'overview', component: OverviewComponent },
+       { path: 'settings', component: SettingsComponent }
+     ]}
+     
+
+4. Router Outlet:
+   - The <router-outlet> directive is used to define the location where the component for the activated route should be displayed.
+   - Example in HTML:
+     html
+     <router-outlet></router-outlet>
+     
+
+5. Relative Router:
+   - You can use relative paths for navigation, making it easier to navigate based on the current route.
+   - Example:
+     
+     // Navigating relative to the current route
+     this.router.navigate(['../new'], { relativeTo: this.route });
+     
+
+6. Router Link:
+   - The routerLink directive is used in templates to create navigation links.
+   - Example:
+     html
+     (Navigate to the 'dashboard' route)
+
+     <a routerLink="/dashboard">Dashboard</a>
+     
+
+7. Lazy Loading:
+   - Lazy loading allows you to load modules and their associated components only when they are requested.
+   - Example:
+     
+     // Lazy loading a module
+     { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }
+     
+
+8. Route Guards:
+   - Route guards are used to control the navigation either by allowing or denying access to a route.
+   - Example:
+     
+     canActivate: [AuthGuard]
