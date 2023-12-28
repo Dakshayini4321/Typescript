@@ -256,3 +256,80 @@ Routing
    - Example:
      
      canActivate: [AuthGuard]
+
+
+Reactive Form 
+
+1. Reactive Forms Module:
+   Angular Reactive Forms are part of the @angular/forms module. To use reactive forms, 
+you need to import the ReactiveFormsModule in your Angular module.
+
+   
+    Import ReactiveFormsModule in your Angular module
+   import { ReactiveFormsModule } from '@angular/forms';
+
+   @NgModule({
+     imports: [
+       ReactiveFormsModule,
+        other modules
+     ],
+      other configurations
+   })
+   export class YourModule { }
+   
+
+2. FormGroup and FormControl:
+   Reactive Forms use FormGroup to represent a form, and FormControl to represent an individual form control (like an input field).
+
+   
+    Create a FormGroup with FormControls
+   const myForm: FormGroup = new FormGroup({
+     'username': new FormControl('', Validators.required),
+     'email': new FormControl('', [Validators.required, Validators.email]),
+   });
+   
+
+3. Setting Values with setValue:
+   The setValue method allows you to set values for the form controls programmatically.
+
+   
+    Set values for the form controls
+   myForm.setValue({
+     'username': 'exampleUser',
+     'email': 'user@example.com',
+   });
+   
+
+4. Accessing Form Control Values:
+   You can retrieve the values of form controls using the value property.
+
+   
+   const usernameValue = myForm.get('username')?.value;
+   const emailValue = myForm.get('email')?.value;
+   
+
+5. Angular Service:
+   Angular services are used for organizing and sharing code across components. Here's a simple example:
+
+   
+    Create a service with the Angular CLI: ng generate service my-data
+   @Injectable({
+     providedIn: 'root',
+   })
+   export class MyDataService {
+      Your service logic here
+   }
+   
+
+6. Reactive Form Validation:
+   Apply validation to form controls and provide user feedback.
+
+   html
+   -- In your component template -
+   <div [ngClass]="{'is-invalid': myForm.get('username')?.invalid && myForm.get('username')?.touched}">
+     <label for="username">Username</label>
+     <input type="text" id="username" formControlName="username">
+     <div ngIf="myForm.get('username')?.hasError('required') && myForm.get('username')?.touched">
+       Username is required.
+     </div>
+   </div>
