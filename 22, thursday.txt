@@ -333,3 +333,76 @@ you need to import the ReactiveFormsModule in your Angular module.
        Username is required.
      </div>
    </div>
+
+
+
+
+
+
+Template Driven Form
+
+
+MyFormComponent, 
+
+
+
+// myform.component.ts
+
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'appmyform',
+  templateUrl: './myform.component.html',
+  styleUrls: ['./myform.component.css']
+})
+export class MyFormComponent {
+  myForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.myForm = this.fb.group({
+      teropliteDriven: ['', Validators.required], // Assuming a required field
+      formInput: ['', Validators.minLength(3)], // Validation for minimum length
+      // Add more form controls as needed
+    });
+  }
+
+  onSubmit() {
+    if (this.myForm.valid) {
+      // Form is valid, handle submission logic here
+      console.log('Form submitted successfully!');
+    } else {
+      // Form has validation errors, handle accordingly
+      console.log('Form has validation errors!');
+    }
+  }
+}
+
+
+Now create the corresponding template file:
+
+html
+< myform.component.html >
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <label for="teropliteDriven">Teroplite Driven:</label>
+  <input id="teropliteDriven" formControlName="teropliteDriven">
+
+  <div *ngIf="myForm.get('teropliteDriven').hasError('required')">
+    Teroplite Driven is required.
+  </div>
+
+  <label for="formInput">Form Input:</label>
+  <input id="formInput" formControlName="formInput">
+
+  <div *ngIf="myForm.get('formInput').hasError('minlength')">
+    Minimum length is 3 characters.
+  </div>
+
+  < Add more form controls and validation messages as needed >
+
+  <button type="submit" [disabled]="myForm.invalid">Submit</button>
+</form>
+
+
+teropliteDriven and formInput, and applied basic validation
