@@ -1,0 +1,38 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div>
+        <h2 class="text-center">User Application</h2>
+        <form id="loginform">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter username" pattern="[A-Za-z0-9]{1,}" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter Password" minlength="4" maxlength="12" required>
+                <div id="passworderror" class="text-danger"></div>
+            </div>
+            <p>Your password is between 4 and 12 characters</p>
+            <a href="file:///C:/Users/user/Desktop/Web/html/as3/angular/template123/page%203.html">
+                <div class="form-group">
+                    <button id="submit" type="submit" class="btn btn-primary btn-block">Login</button>
+                </div>
+            </a>
+            <div class="form-group form-check text-center">
+                <input type="checkbox" class="form-check-input" id="rememberMe">
+                <label class="form-check-label" for="rememberMe">Remember me</label>
+            </div>
+        </form>
+        <p class="text-center">
+            <a href="abc" class="font-weight-bold text-decoration-none">Create New Account</a>
+            <a href="file:///C:/Users/user/Desktop/Web/html/as3/angular/template123/page2.html">Sign In</a>
+        </p>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
