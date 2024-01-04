@@ -1,1 +1,37 @@
-<p>crud-api works!</p>
+<div class="btn-group">
+    <button class="btn btn-primary" (click)="addDataFromAPI()">API Add</button>
+  </div>
+  
+  <div class="table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Company</th>
+          <th>State</th>
+          <th>Phone</th>
+          <th>Street</th>
+          <th>City</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.name }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.company.name }}</td>
+          <td>{{ user.address.state }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.address.street }}</td>
+          <td>{{ user.address.city }}</td>
+          <td>
+            <button class="btn btn-warning btn-sm mr-1" (click)="updateUser(user.id)">Update</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteUser(user.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

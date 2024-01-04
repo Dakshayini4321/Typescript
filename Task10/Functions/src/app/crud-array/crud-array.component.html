@@ -1,1 +1,29 @@
-<p>crud-array works!</p>
+<div class="container mt-5">
+    <h2 class="text-center">User Data</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Education</th>
+          <th>State</th>
+          <th>MobileNumber</th>
+          <th>Address</th>
+          <th>Gender</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of userData; let i = index">
+          <td>{{ user.Name.firstName + ' ' + user.Name.secondName }}</td>
+          <td>{{ user.Username }}</td>
+          <td>{{ user.Education }}</td>
+          <td>{{ user.State }}</td>
+          <td>{{ user.MobileNumber }}</td>
+          <td>{{ user.Address }}</td>
+          <td>{{ user.Gender }}</td>
+          <td><button class="btn btn-danger" (click)="deleteUser(i)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
